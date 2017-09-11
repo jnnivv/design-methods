@@ -25,7 +25,7 @@ body {
 	text-align:justify;
 	margin:0;
 	font-family: 'Crimson Text';
-	font-size:10px;
+	font-size:13px;
 	letter-spacing:300px;
 	
 	
@@ -41,7 +41,15 @@ body {
 </style>
 </head>
 <body>
-<div class="content">
+<span style="font-family: 'Roboto'; letter-spacing:0px; font-size:10px; float:right; margin-right:50px; text-align:right;">
+ Title: Moon River<br/>
+ 	Lyrics: Johnny Mercer<br/>
+ 	Letter Spacing-04
+ 	<a href="index.html" style="background-color:#000; color:#fff;">[home]</a>
+ 	</span>
+ 	
+<div class="content" id="random">
+<br/><br/>
 Moon river, wider than a mile
 I'm crossing you in style someday
 You dream maker
@@ -55,5 +63,9 @@ Waiting round the bend
 My huckleberry friend
 Moon river and me
 </div>
+<script>
+	var rnd = Math.floor(Math.random()* 300);
+	document.getElementById("random").style.letterSpacing = rnd + "px";
+</script>
 </body>
 </html>
