@@ -123,11 +123,11 @@ jQuery(document).ready(function() {
   		$('.text').append("<span class=\"name\">" + $(this).data("name") + "</span> <br>");
   		$('.text').append("<span class=\"desc\">" + $(this).data("desc") + "</span><br>");
   		$('.text').append("<span class=\"twitter\"><a href=\"http://twitter.com/" + $(this).data("twitter")
-  		+ "\">"
+  		+ "\" target=\"new\">"
   		 + "@" + $(this).data("twitter") + "</a></span><br>");
   		
   		if($(this).data("website") != null) {
-  			$('.text').append("<span class=\"web\"><a href=\"" + $(this).data("website") + "\">Website</a></span><br>");
+  			$('.text').append("<span class=\"web\"><a href=\"" + $(this).data("website") + "\"  target=\"new\">Website</a></span><br>");
   		}
   		
   		
