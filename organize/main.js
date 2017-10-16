@@ -96,6 +96,8 @@ $(document).ready(function() {
 				}
 				else {
 					console.log("no match");
+					$(this).css({backgroundColor: 'black'});
+					$(this).fadeTo("slow", 0.33);
 				}
 				});
 				break;
