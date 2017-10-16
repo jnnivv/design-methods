@@ -1,11 +1,14 @@
 body {
-	font-family: 'Roboto Mono';
+
+	background-color: #fafafa;
 }
+
+
 
 .main {
 	margin: 0 auto;
-	width:600px;
-	font-size:5em;
+	width:30vw;
+	font-size:4vw;
 	line-height:80%;
 	text-align:justify;
 	margin-top:95px;
@@ -35,17 +38,17 @@ body {
 	display: flex;
 	flex-direction: horizontal;
   align-items: center; /* cross axis */
-	background-color: white;
-	width:80%;
+
+	width:60vw;
 	margin: 0 auto;
 }
 
 .filter-button {
 	font-family: 'Karla';
-	font-size:12px;
+	font-size:0.7vw;
 	text-transform:uppercase;
-	width: 120px;
-	height: 50px;
+	width: 7vw;
+	height: 3.5vw;
 	border-radius: 5px;
 	background-color: #f1f1f1;
 	padding: 5px;
@@ -94,12 +97,14 @@ body {
 }
 
 .name {
+	font-family:'Montserrat';
+	text-transform: uppercase;
 	font-weight: 700;
-	border-bottom: 1px dotted #888;
+	font-size:1.5vw;
 }
 
 .desc {
-	font-size:9pt;
+	font-size:0.8vw;
 	display:block;
 	margin-top:10px;
 }
@@ -109,11 +114,14 @@ body {
 	display:block;
 	padding:10px;
 	margin-top:2em;
+	font-size:0.8vw;
 	text-align:center;
 	-webkit-transition: background-color 2s ease-out;
 	-moz-transition: background-color 2s ease-out;
 	-o-transition: background-color 2s ease-out;
 	transition: background-color 2s ease-out;
+	text-transform: uppercase;
+	letter-spacing:2px;
 }
 
 .twitter:hover {
@@ -121,9 +129,12 @@ body {
 }
 
 .web {
+	font-size:0.8vw;
 	background-color:#eeacac;
+	letter-spacing:2px;
 	display:block;
 	padding:10px;
+	text-transform: uppercase;
 	text-align:center;
 	-webkit-transition: background-color 2s ease-out;
 	-moz-transition: background-color 2s ease-out;
@@ -162,12 +173,15 @@ body {
 /* Modal Content */
 .popup {
 	position: absolute;
-    background-color: #fefefe;
+    background-color: #f1f1f1;
+		color:#666;
     margin: auto;
     padding: 20px;
-    border: 1px dashed #888;
+   	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+		border-radius: 4px;
     min-width:250px;
     width: 20%;
+		font-family: 'Karla';
 }
 
 /* The Close Button */

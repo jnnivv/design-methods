@@ -55,7 +55,7 @@ $(document).ready(function() {
 			const followerNum = data.users[i].followers_count - followers.min;
 			const followerFraction = followerNum / (followers.max - followers.min);
 
-			const user = makeUser(img, name, desc, twitter, website, i, followerFraction);
+			const user = makeUser(img, name, desc, twitter, website, dateFraction, followerFraction);
 			users.push(user);
 		}
 
@@ -356,10 +356,10 @@ function makeUser(img, name, desc, twitter, website, dateFraction, followerFract
 	// make position sensitive to size and document's width
 	const posx = (Math.random() * ($(document).width() - divsize)).toFixed();
 	var posy;
-if($(document).height() > 1800) {
-	posy = ($(document).height() * 0.26) + (dateFraction*20);
+if($(document).height() > 1400) {
+	posy = 650 + (dateFraction*$(document).height());
 } else {
-	posy = ($(document).height() * 0.4) + (dateFraction*20);
+	posy = 400 + (dateFraction*$(document).height());
 }
 
 	//400 + (dateFraction*$(document).height());
