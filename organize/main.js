@@ -77,7 +77,7 @@ $(document).ready(function() {
 		let filter = $(this).attr('id');
 		switch (filter) {
 			case "product-filter":
-				$('.user').forEach(function(user) {
+				$('.user').each(function(user) {
 					if (user.data("desc").match(/product/)) {
 						console.log("match");
 					}
@@ -87,7 +87,7 @@ $(document).ready(function() {
 				});
 				break;
 			case "ux-filter":
-				if (user.data("desc").match(/ui/)) {
+				if (user.data("desc").match(/ux/)) {
 					console.log("match");
 				}
 				else {
