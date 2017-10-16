@@ -1,4 +1,4 @@
-var colours = [
+const colours = [
 	"#eeacac",
 	"#f6cea8",
 	"#f7e697",
@@ -14,6 +14,8 @@ var colours = [
 	"#d2daed"
 ];
 
+const users = [];
+
 $(document).ready(function() {
 	
 	$.ajaxSetup({
@@ -27,31 +29,29 @@ $(document).ready(function() {
 	// populate profiles
 
 	$.getJSON("twitter306.json" , function(data) {
-		console.log(data.users[5]);
 		
-		for(var i = 0; i < data.users.length; i++) {
-			var s = data.users[i].profile_image_url.replace(/_normal/g, "");
-			var img = "<img src = \"" + s + "\"/>";
-			var name = data.users[i].name;
-			var desc = data.users[i].description; 
-			var twitter = data.users[i].screen_name;
-			var website = data.users[i].url;
-			makeDiv(img, name, desc, twitter, website);
+		for(let i = 0; i < data.users.length; i++) {
+			const s = data.users[i].profile_image_url.replace(/_normal/g, "");
+			const img = "<img src = \"" + s + "\"/>";
+			const name = data.users[i].name;
+			const desc = data.users[i].description;
+			const twitter = data.users[i].screen_name;
+			const website = data.users[i].url;
+			const user = makeUser(img, name, desc, twitter, website);
+			users.push(user);
 		}
 		
 	});
 	
-	$("div.main").css('opacity', '1');
-					
-	$('body').on('mouseover', '.user', function(){
+	$('body').on('mouseover', '.user', function() {
 		$(this).parent().append(this);
 	});
-			
-	var modal = document.getElementById('modal');
-			
+	
+	const modal = document.getElementById('modal');
+	
 	$('body').on('click', '.user', function(){
-  		
-		var position = $(this).offset();
+  	
+		const position = $(this).offset();
 		console.log(position);
 		$('#modal').css(position);
 		modal.style.display = "block";
@@ -66,45 +66,68 @@ $(document).ready(function() {
 		if($(this).data("website") != null) {
 			$('.text').append("<span class=\"web\"><a href=\"" + $(this).data("website") + "\"  target=\"new\">Website</a></span><br>");
 		}
-  		
+  	
 	});
 	
 	$('span.close').on('click', function() {
 		modal.style.display = "none";
 	});
 
+	$('.filter-button').hover(function() {
+		let filter = $(this).attr('id');
+		switch (filter) {
+			case "ui-filter":
+				users.forEach(function(user) {
+					if (user.data("desc").match(/ui/)) {
+						console.log("match");
+					}
+					else {
+						console.log("no match");
+					}
+				});
+				break;
+			case "ux-filter":
+				if (user.data("desc").match(/ui/)) {
+					console.log("match");
+				}
+				else {
+					console.log("no match");
+				}
+				break;
+			default:
+
+				break;
+		}
+	});
+
 });
 
-
-function makeDiv(img, name, desc, twitter, website) {
+function makeUser(img, name, desc, twitter, website) {
 
 	// vary size for fun
-	var divsize = ((Math.random()*150) + 100).toFixed();
-	var hex = Math.round(Math.random()*10).toString(16);
-	var color = '#'+ hex + hex + hex;
-	var rndCol = Math.floor(Math.random()*colours.length);
+	const divsize = ((Math.random()*150) + 100).toFixed();
+	const rndCol = Math.floor(Math.random()*colours.length);
 
-	$newdiv = $('<div/>').css({
+	$newuser = $('<div/>').css({
 		'width':divsize+'px',
 		'height':divsize+'px',
-		'background-color': colours[rndCol],
-		//'border-radius': 5+'px',
+		'background-color': colours[rndCol]
 	});
 	
 	// make position sensitive to size and document's width
-	var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
-	var posy = (Math.random() * ($(document).height() + 1500 - (divsize*3)) + 90).toFixed();
+	const posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+	const posy = (Math.random() * ($(document).height() + 1500 - (divsize*3)) + 140).toFixed();
 	
-	$newdiv.append(img);
-	$newdiv.addClass("user");
-	$newdiv.draggable();
-	$newdiv.css({
+	$newuser.append(img);
+	$newuser.addClass("user");
+	$newuser.draggable();
+	$newuser.css({
 			'position':'absolute',
 			'left':posx+'px',
 			'top':posy+'px',
 			'display':'none'
 	}).appendTo( 'body' ).fadeIn(100).delay(1000);
 
-	$newdiv.data({"name": name, "desc": desc, "twitter": twitter, "website": website});
-   
+	$newuser.data({"name": name, "desc": desc, "twitter": twitter, "website": website});
+  return $newuser;
 }

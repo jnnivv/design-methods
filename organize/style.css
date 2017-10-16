@@ -1,46 +1,62 @@
 body {
-font-family: 'Roboto Mono';
+	font-family: 'Roboto Mono';
 }
 
 .main {
-
 	text-align:center;
 	margin-top:35px;
 	padding-bottom:30px;
 	border-bottom: 1px dashed #888;
+	opacity: 1;
+}
 
+#filter-bar {
+	display: flex;
+	flex-direction: horizontal;
+	background-color: white;
+}
+
+.filter-button {
+	width: 120px;
+	height: 50px;
+	border-radius: 5px;
+	background-color: #f1f1f1;
+	vertical-align: middle;
+	margin: 5px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#ui-filter:hover {
+	background-color: #eeacac;
+}
+
+#ux-filter:hover {
+	background-color: #f6cea8;
 }
 
 .user img {
-
 	max-width: 60%;
 	max-height:60%;
 	margin-top:20%;
-
 }
 
 .user {
-
 	cursor: move;
-
 }
 
 .name {
-
 	font-weight: 700;
 	border-bottom: 1px dotted #888;
-	
 }
 
 .desc {
-
 	font-size:9pt;
 	display:block;
 	margin-top:10px;
 }
 
 .twitter {
-
 	background-color:#d9cadc;
 	display:block;
 	padding:10px;
@@ -50,46 +66,34 @@ font-family: 'Roboto Mono';
 	-moz-transition: background-color 2s ease-out;
 	-o-transition: background-color 2s ease-out;
 	transition: background-color 2s ease-out;
-
 }
 
 .twitter:hover {
-
 	background-color:#f7e697;
 }
 
 .web {
-
 	background-color:#eeacac;
 	display:block;
 	padding:10px;
-	
 	text-align:center;
-
 	-webkit-transition: background-color 2s ease-out;
 	-moz-transition: background-color 2s ease-out;
 	-o-transition: background-color 2s ease-out;
 	transition: background-color 2s ease-out;
-
 }
 
 .web:hover {
-
 	background-color:#c7eeab;
 }
 
 .text a {
-
 	color:#fff;
 	text-decoration:none;
-	
-
 }
 
 .user {
-	
 	text-align:center;
-
 }
 
 /* The Modal (background) */
