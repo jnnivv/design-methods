@@ -3,37 +3,81 @@ body {
 }
 
 .main {
-	text-align:center;
-	margin-top:35px;
+	margin: 0 auto;
+	width:600px;
+	font-size:5em;
+	line-height:80%;
+	text-align:justify;
+	margin-top:95px;
 	padding-bottom:30px;
-	border-bottom: 1px dashed #888;
+	font-family: 'Montserrat';
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 3px;
 	opacity: 1;
+}
+
+.main a {
+	color:#000;
+	text-decoration: none;
+}
+
+.main a:hover {
+	color:#ba44dc;
+	-webkit-transition: color 1s ease-out;
+	-moz-transition: color 1s ease-out;
+	-o-transition: color 1s ease-out;
+	transition: color 1s ease-out;
+
 }
 
 #filter-bar {
 	display: flex;
 	flex-direction: horizontal;
+  align-items: center; /* cross axis */
 	background-color: white;
+	width:80%;
+	margin: 0 auto;
 }
 
 .filter-button {
+	font-family: 'Karla';
+	font-size:12px;
+	text-transform:uppercase;
 	width: 120px;
 	height: 50px;
 	border-radius: 5px;
 	background-color: #f1f1f1;
-	vertical-align: middle;
+	padding: 5px;
 	margin: 5px;
 	text-align: center;
-	vertical-align: middle;
+	cursor:pointer;
+	display: inline-flex;
+  align-items: center; /* cross axis */
+  justify-content: center; /* main axis */
+
+  line-height: 1; /* reset */
+
+	-webkit-transition: background-color 2s ease-out;
+	-moz-transition: background-color 2s ease-out;
+	-o-transition: background-color 2s ease-out;
+	transition: background-color 2s ease-out;
+
+}
+
+.filter-button:hover {
+	color:#fff;
+	background-color: #ba44dc;
 }
 
 #product-filter:hover {
-	background-color: #eeacac;
+	color:#fff;
+	background-color: #ba44dc;
 }
-
+/*
 #ux-filter:hover {
 	background-color: #f6cea8;
-}
+}*/
 
 .user img {
 	max-width: 60%;
@@ -43,6 +87,10 @@ body {
 
 .user {
 	cursor: move;
+}
+
+.user:hover {
+	 box-shadow: -10px 10px 25px 0 rgba(0, 0, 0, 0.15);
 }
 
 .name {
@@ -118,8 +166,8 @@ body {
     margin: auto;
     padding: 20px;
     border: 1px dashed #888;
-    min-width:200px;
-    width: 15%;
+    min-width:250px;
+    width: 20%;
 }
 
 /* The Close Button */

@@ -14,6 +14,8 @@ const colours = [
 	"#d2daed"
 ];
 
+
+
 const users = [];
 
 $(document).ready(function() {
@@ -53,22 +55,58 @@ $(document).ready(function() {
 			const followerNum = data.users[i].followers_count - followers.min;
 			const followerFraction = followerNum / (followers.max - followers.min);
 
-			const user = makeUser(img, name, desc, twitter, website, dateFraction, followerFraction);
+			const user = makeUser(img, name, desc, twitter, website, i, followerFraction);
 			users.push(user);
 		}
 
 	});
 
+
+
 	$('body').on('mouseover', '.user', function() {
+		const rndCol = Math.floor(Math.random()*colours.length);
+		//$(this).css({backgroundColor: colours[rndCol]});
+		$(this).css( {boxShadow: '-10px 10px 25px 0 rgba(0, 0, 0, 0.15)'});
 		$(this).parent().append(this);
 	});
+
+	$('body').on('mouseout', '.user', function() {
+		$(this).css( {boxShadow: '0 0 5px 0 rgba(0, 0, 0, 0.1'});
+
+		//$(this).css({backgroundColor: 'white'});
+		//$(this).parent().append(this);
+	});
+
+	$('body').on('mouseover', '.main', function() {
+		const rndCol = Math.floor(Math.random()*colours.length);
+		$(this).css('color', colours[rndCol]);
+		//$(this).css({backgroundColor: 'white'});
+		//$(this).parent().append(this);
+	});
+
+
+
 
 	const modal = document.getElementById('modal');
 
 	$('body').on('click', '.user', function(){
 
 		const position = $(this).offset();
+
+
+
+		if(position.left > $(document).width() * 0.5) {
+			position.left = position.left - (($('.popup').width() / 100) * $(document).width());
+		} else {
+			position.left = position.left + $(this).width();
+		}
+
+		if(position.top > $(document).width() * 0.9) {
+			//position.top = position.top -
+		}
+
 		console.log(position);
+
 		$('#modal').css(position);
 		modal.style.display = "block";
 		console.log($(this).data("desc"));
@@ -89,120 +127,169 @@ $(document).ready(function() {
 		modal.style.display = "none";
 	});
 
-	$('.filter-button').hover(function() {
+
+	$('.filter-button').click(function() {
+
+			$('.filter-button').each(function() {
+				$(this).css({backgroundColor: '#f1f1f1'});
+				$(this).css('color', '#000');
+			});
+
 		let filter = $(this).attr('id');
 		switch (filter) {
 			case "product-filter":
+			$(this).css({backgroundColor: '#ba44dc'});
+			$(this).css('color', '#fff');
 			$('.user').each(function() {
 					if ($(this).data("desc").match(/product/i)) {
-						$(this).css({backgroundColor: 'red'});
+						$(this).css({backgroundColor: '#ea4775'});
+						$(this).parent().append(this);
 						$(this).fadeTo("slow", 1);
 					}
 					else {
 						console.log("no match");
-						$(this).css({backgroundColor: 'black'});
+						$(this).css({backgroundColor: 'white'});
 						$(this).fadeTo("slow", 0.33);
 					}
 				});
 				break;
 			case "ux-filter":
+			$(this).css({backgroundColor: '#ba44dc'});
+			$(this).css('color', '#fff');
 			$('.user').each(function() {
 				if ($(this).data("desc").match(/ux/i)) {
 					console.log("match: " + $(this).data("desc"));
-					$(this).css({backgroundColor: 'blue'});
+					$(this).css({backgroundColor: '#2e33ff'});
+					$(this).parent().append(this);
 					$(this).fadeTo("slow", 1);
 				}
 				else {
 					console.log("no match");
-					$(this).css({backgroundColor: 'black'});
+					$(this).css({backgroundColor: 'white'});
 					$(this).fadeTo("slow", 0.33);
 				}
 				});
 				break;
-			case "ui-filter":
-			$('.user').each(function() {
-					if ($(this).data("desc").match(/(\W|\s)ui/i)) {
-						console.log("match: " + $(this).data("desc"));
-						$(this).css({backgroundColor: 'green'});
-						$(this).fadeTo("slow", 1);
-					}
-					else {
-						console.log("no match");
-						$(this).css({backgroundColor: 'black'});
-						$(this).fadeTo("slow", 0.33);
-					}
-					});
-					break;
+
 			case "ceo-filter":
+			$(this).css({backgroundColor: '#ba44dc'});
+			$(this).css('color', '#fff');
 			$('.user').each(function() {
 					if ($(this).data("desc").match(/(founder|ceo)/i)) {
 						console.log("match: " + $(this).data("desc"));
-						$(this).css({backgroundColor: 'green'});
+						$(this).css({backgroundColor: '#4ff773'});
+						$(this).parent().append(this);
 						$(this).fadeTo("slow", 1);
 					}
 					else {
 						console.log("no match");
-						$(this).css({backgroundColor: 'black'});
+						$(this).css({backgroundColor: 'white'});
 						$(this).fadeTo("slow", 0.33);
 					}
 					});
 					break;
 			case "graphic-filter":
+			$(this).css({backgroundColor: '#ba44dc'});
+			$(this).css('color', '#fff');
 			$('.user').each(function() {
 					if ($(this).data("desc").match(/(graphic|visual)/i)) {
 						console.log("match: " + $(this).data("desc"));
-						$(this).css({backgroundColor: 'green'});
+						$(this).css({backgroundColor: '#319cf6'});
+						$(this).parent().append(this);
 						$(this).fadeTo("slow", 1);
 					}
 					else {
 						console.log("no match");
-						$(this).css({backgroundColor: 'black'});
+						$(this).css({backgroundColor: 'white'});
 						$(this).fadeTo("slow", 0.33);
 					}
 					});
 					break;
 			case "ill-filter":
+			$(this).css({backgroundColor: '#ba44dc'});
+			$(this).css('color', '#fff');
 			$('.user').each(function() {
-					if ($(this).data("desc").match(/(illustrator|zines|draw|artist)/i)) {
+					if ($(this).data("desc").match(/(illustrator|zines|draw|artist|illustration|art|paint)/i)) {
 						console.log("match: " + $(this).data("desc"));
-						$(this).css({backgroundColor: 'green'});
+						$(this).css({backgroundColor: '#a531f6'});
+						$(this).parent().append(this);
 						$(this).fadeTo("slow", 1);
 					}
 					else {
 						console.log("no match");
-						$(this).css({backgroundColor: 'black'});
+						$(this).css({backgroundColor: 'white'});
 						$(this).fadeTo("slow", 0.33);
 					}
 					});
 					break;
 			case "director-filter":
+			$(this).css({backgroundColor: '#ba44dc'});
+			$(this).css('color', '#fff');
 			$('.user').each(function() {
 					if ($(this).data("desc").match(/director/i)) {
 						console.log("match: " + $(this).data("desc"));
-						$(this).css({backgroundColor: 'green'});
+						$(this).parent().append(this);
+						$(this).css({backgroundColor: '#ffee2e'});
 						$(this).fadeTo("slow", 1);
 					}
 					else {
 						console.log("no match");
-						$(this).css({backgroundColor: 'black'});
+						$(this).css({backgroundColor: 'white'});
 						$(this).fadeTo("slow", 0.33);
 					}
 					});
 					break;
 			case "developer-filter":
+			$(this).css({backgroundColor: '#ba44dc'});
+			$(this).css('color', '#fff');
 			$('.user').each(function() {
 					if ($(this).data("desc").match(/(developer|code|program)/i)) {
 						console.log("match: " + $(this).data("desc"));
-						$(this).css({backgroundColor: 'green'});
+						$(this).parent().append(this);
+						$(this).css({backgroundColor: '#692eff'});
 						$(this).fadeTo("slow", 1);
 					}
 					else {
 						console.log("no match");
-						$(this).css({backgroundColor: 'black'});
+						$(this).css({backgroundColor: 'white'});
 						$(this).fadeTo("slow", 0.33);
 					}
 					});
 					break;
+					case "entr-filter":
+					$(this).css({backgroundColor: '#ba44dc'});
+					$(this).css('color', '#fff');
+					$('.user').each(function() {
+					if ($(this).data("desc").match(/(entrepreneur|business)/i)) {
+						console.log("match: " + $(this).data("desc"));
+						$(this).parent().append(this);
+						$(this).css({backgroundColor: '#ff2e3d'});
+						$(this).fadeTo("slow", 1);
+					}
+					else {
+						console.log("no match");
+						$(this).css({backgroundColor: 'white'});
+						$(this).fadeTo("slow", 0.33);
+					}
+					});
+					break;
+					case "game-filter":
+					$(this).css({backgroundColor: '#ba44dc'});
+					$(this).css('color', '#fff');
+					$('.user').each(function() {
+							if ($(this).data("desc").match(/(game)/i)) {
+								console.log("match: " + $(this).data("desc"));
+								$(this).parent().append(this);
+								$(this).css({backgroundColor: '#2eff9f'});
+								$(this).fadeTo("slow", 1);
+							}
+							else {
+								console.log("no match");
+								$(this).css({backgroundColor: 'white'});
+								$(this).fadeTo("slow", 0.33);
+							}
+							});
+							break;
 			default:
 
 				break;
@@ -254,13 +341,16 @@ function makeUser(img, name, desc, twitter, website, dateFraction, followerFract
 	$newuser = $('<div/>').css({
 		'width':divsize+'px',
 		'height':divsize+'px',
-		'background-color': colours[rndCol]
+		//'border': '1px solid #888',
+		'box-shadow': '0 0 5px 0 rgba(0, 0, 0, 0.1)',
+		'background-color': 'white'//colours[rndCol]
 	});
 
 	// make position sensitive to size and document's width
 	const posx = (Math.random() * ($(document).width() - divsize)).toFixed();
-	const posy = 140 + (dateFraction*$(document).height());
-	//140 + (rank*20);
+	const posy = 400 + (dateFraction*20);
+	//400 + (dateFraction*$(document).height());
+	//
 	//(Math.random() * ($(document).height() + 700 - (divsize*3)) + 140).toFixed();
 
 	$newuser.append(img);
