@@ -87,20 +87,23 @@ $(document).ready(function() {
 				});
 				break;
 			case "ux-filter":
-				if (user.data("desc").match(/ux/)) {
-					console.log("match");
+			$('.user').each(function() {
+				if ($(this).data("desc").match(/ux/)) {
+					console.log("match: " + $(this).data("desc"));
+					$(this).css({backgroundColor: 'black'});
 				}
 				else {
 					console.log("no match");
 				}
+				});
 				break;
 			default:
 
 				break;
 		}
-	});
 
-});
+
+		});
 
 function makeUser(img, name, desc, twitter, website) {
 
