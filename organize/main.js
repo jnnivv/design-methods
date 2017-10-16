@@ -78,8 +78,9 @@ $(document).ready(function() {
 		switch (filter) {
 			case "product-filter":
 			$('.user').each(function() {
-					if ($(this).data("desc").match(/product/)) {
+					if ($(this).data("desc").match(/product/i)) {
 						$(this).css({backgroundColor: 'red'});
+						$(this).fadeTo("slow", 1);
 					}
 					else {
 						console.log("no match");
@@ -90,9 +91,10 @@ $(document).ready(function() {
 				break;
 			case "ux-filter":
 			$('.user').each(function() {
-				if ($(this).data("desc").match(/ux/)) {
+				if ($(this).data("desc").match(/ux/i)) {
 					console.log("match: " + $(this).data("desc"));
 					$(this).css({backgroundColor: 'blue'});
+					$(this).fadeTo("slow", 1);
 				}
 				else {
 					console.log("no match");
@@ -101,6 +103,90 @@ $(document).ready(function() {
 				}
 				});
 				break;
+			case "ui-filter":
+			$('.user').each(function() {
+					if ($(this).data("desc").match(/(\W|\s)ui/i)) {
+						console.log("match: " + $(this).data("desc"));
+						$(this).css({backgroundColor: 'green'});
+						$(this).fadeTo("slow", 1);
+					}
+					else {
+						console.log("no match");
+						$(this).css({backgroundColor: 'black'});
+						$(this).fadeTo("slow", 0.33);
+					}
+					});
+					break;
+			case "ceo-filter":
+			$('.user').each(function() {
+					if ($(this).data("desc").match(/(founder|ceo)/i)) {
+						console.log("match: " + $(this).data("desc"));
+						$(this).css({backgroundColor: 'green'});
+						$(this).fadeTo("slow", 1);
+					}
+					else {
+						console.log("no match");
+						$(this).css({backgroundColor: 'black'});
+						$(this).fadeTo("slow", 0.33);
+					}
+					});
+					break;
+			case "graphic-filter":
+			$('.user').each(function() {
+					if ($(this).data("desc").match(/(graphic|visual)/i)) {
+						console.log("match: " + $(this).data("desc"));
+						$(this).css({backgroundColor: 'green'});
+						$(this).fadeTo("slow", 1);
+					}
+					else {
+						console.log("no match");
+						$(this).css({backgroundColor: 'black'});
+						$(this).fadeTo("slow", 0.33);
+					}
+					});
+					break;
+			case "ill-filter":
+			$('.user').each(function() {
+					if ($(this).data("desc").match(/(illustrator|zines|draw|artist)/i)) {
+						console.log("match: " + $(this).data("desc"));
+						$(this).css({backgroundColor: 'green'});
+						$(this).fadeTo("slow", 1);
+					}
+					else {
+						console.log("no match");
+						$(this).css({backgroundColor: 'black'});
+						$(this).fadeTo("slow", 0.33);
+					}
+					});
+					break;
+			case "director-filter":
+			$('.user').each(function() {
+					if ($(this).data("desc").match(/director/i)) {
+						console.log("match: " + $(this).data("desc"));
+						$(this).css({backgroundColor: 'green'});
+						$(this).fadeTo("slow", 1);
+					}
+					else {
+						console.log("no match");
+						$(this).css({backgroundColor: 'black'});
+						$(this).fadeTo("slow", 0.33);
+					}
+					});
+					break;
+			case "developer-filter":
+			$('.user').each(function() {
+					if ($(this).data("desc").match(/(developer|code|program)/i)) {
+						console.log("match: " + $(this).data("desc"));
+						$(this).css({backgroundColor: 'green'});
+						$(this).fadeTo("slow", 1);
+					}
+					else {
+						console.log("no match");
+						$(this).css({backgroundColor: 'black'});
+						$(this).fadeTo("slow", 0.33);
+					}
+					});
+					break;
 			default:
 
 				break;
@@ -124,37 +210,8 @@ function makeUser(img, name, desc, twitter, website) {
 	});
 
 	// make position sensitive to size and document's width
-	let posx = NaN
-	let posy = NaN
-	if (Math.random() > 0.5) {
-		// fix posx
-		if (Math.random() > 0.5) {
-			// on the right
-			posx = ($(document).width() - divsize).toFixed();
-		}
-		else {
-			// on the left
-			posx = 0
-		}
-		// random y
-		posy = (Math.random() * (($(document).height() - divsize) + 140)).toFixed();
-	}
-	else {
-		// fix posy
-		if (Math.random() > 0.5) {
-			// on the top
-			posy = 140
-		}
-		else {
-			// on the bottom
-			posy = ($(document).height()).toFixed();
-		}
-		// random x
-		posx = (Math.random() * ($(document).width() - divsize)).toFixed();
-	}
-	// const posx = (Math.random() * ($(document).width() - divsize)).toFixed();
-	// const posy = (Math.random() * ($(document).height() - (divsize*3)) + 140).toFixed();
-
+	const posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+	const posy = (Math.random() * ($(document).height() + 700 - (divsize*3)) + 140).toFixed();
 
 	$newuser.append(img);
 	$newuser.addClass("user");
