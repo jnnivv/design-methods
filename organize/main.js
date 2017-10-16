@@ -105,6 +105,8 @@ $(document).ready(function() {
 
 		});
 
+	});
+
 function makeUser(img, name, desc, twitter, website) {
 
 	// vary size for fun
