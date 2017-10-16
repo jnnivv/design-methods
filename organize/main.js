@@ -115,9 +115,38 @@ function makeUser(img, name, desc, twitter, website) {
 	});
 	
 	// make position sensitive to size and document's width
-	const posx = (Math.random() * ($(document).width() - divsize)).toFixed();
-	const posy = (Math.random() * ($(document).height() + 1500 - (divsize*3)) + 140).toFixed();
-	
+	let posx = NaN
+	let posy = NaN
+	if (Math.random() > 0.5) {
+		// fix posx
+		if (Math.random() > 0.5) {
+			// on the right
+			posx = ($(document).width() - divsize).toFixed();
+		}
+		else {
+			// on the left
+			posx = 0
+		}
+		// random y
+		posy = ((Math.random() * ($(document).height() - divsize - 140)) + 140).toFixed();
+	}
+	else {
+		// fix posy
+		if (Math.random() > 0.5) {
+			// on the top
+			posy = 140
+		}
+		else {
+			// on the bottom
+			posy = $(document).height()
+			console.log(posy)
+		}
+		// random x
+		posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+	}
+	// const posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+	// const posy = (Math.random() * ($(document).height() - (divsize*3)) + 140).toFixed();
+
 	$newuser.append(img);
 	$newuser.addClass("user");
 	$newuser.draggable();
