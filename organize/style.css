@@ -108,6 +108,91 @@ body {
 	display:block;
 	margin-top:10px;
 }
+.pink {
+	background: -webkit-linear-gradient(left top, #f88be8, #d8a7ff); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #f88be8, #d8a7ff); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #f88be8, #d8a7ff); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #f88be8, #d8a7ff); /* Standard syntax */
+
+}
+
+.blue {
+	background: -webkit-linear-gradient(left top, #94fff7, #d8a7ff); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #94fff7, #d8a7ff); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #94fff7, #d8a7ff); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #94fff7, #d8a7ff); /* Standard syntax */
+}
+
+.yellow {
+	background: -webkit-linear-gradient(left top, #f7dead, #ef8cdd); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #f7dead, #ef8cdd); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #f7dead, #ef8cdd); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #f7dead, #ef8cdd); /* Standard syntax */
+
+}
+
+.deepblue {
+
+	background: -webkit-linear-gradient(left top, #4469ff, #26fbfe); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #4469ff, #26fbfe); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #4469ff, #26fbfe); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #4469ff, #26fbfe); /* Standard syntax */
+
+}
+
+.brightgreen {
+
+
+		background: -webkit-linear-gradient(left top, #fff702, #94ff63); /* For Safari 5.1 to 6.0 */
+		background: -o-linear-gradient(bottom right, #fff702, #94ff63); /* For Opera 11.1 to 12.0 */
+		background: -moz-linear-gradient(bottom right, #fff702, #94ff63); /* For Firefox 3.6 to 15 */
+		background: linear-gradient(to bottom right, #fff702, #94ff63); /* Standard syntax */
+
+}
+
+.purple {
+
+
+			background: -webkit-linear-gradient(left top, #8d7afe, #ff719b); /* For Safari 5.1 to 6.0 */
+			background: -o-linear-gradient(bottom right, #8d7afe, #ff719b); /* For Opera 11.1 to 12.0 */
+			background: -moz-linear-gradient(bottom right, #8d7afe, #ff719b); /* For Firefox 3.6 to 15 */
+			background: linear-gradient(to bottom right, #8d7afe, #ff719b); /* Standard syntax */
+
+}
+
+.red {
+
+
+			background: -webkit-linear-gradient(left top, #f75765, #f38e70); /* For Safari 5.1 to 6.0 */
+			background: -o-linear-gradient(bottom right, #f75765, #f38e70); /* For Opera 11.1 to 12.0 */
+			background: -moz-linear-gradient(bottom right, #f75765, #f38e70); /* For Firefox 3.6 to 15 */
+			background: linear-gradient(to bottom right, #f75765, #f38e70); /* Standard syntax */
+
+}
+
+.palegreen {
+
+
+			background: -webkit-linear-gradient(left top, #b2f0cf, #d1f0c7); /* For Safari 5.1 to 6.0 */
+			background: -o-linear-gradient(bottom right, #b2f0cf, #d1f0c7); /* For Opera 11.1 to 12.0 */
+			background: -moz-linear-gradient(bottom right, #b2f0cf, #d1f0c7); /* For Firefox 3.6 to 15 */
+			background: linear-gradient(to bottom right, #b2f0cf, #d1f0c7); /* Standard syntax */
+
+}
+
+.palepink {
+
+
+			background: -webkit-linear-gradient(left top, #ffb0e1, #a5deff); /* For Safari 5.1 to 6.0 */
+			background: -o-linear-gradient(bottom right, #ffb0e1, #a5deff); /* For Opera 11.1 to 12.0 */
+			background: -moz-linear-gradient(bottom right, #ffb0e1, #a5deff); /* For Firefox 3.6 to 15 */
+			background: linear-gradient(to bottom right, #ffb0e1, #a5deff); /* Standard syntax */
+
+}
+
+.white {
+	background: white !important;
+}
 
 .twitter {
 	background-color:#d9cadc;
