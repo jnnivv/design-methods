@@ -7,7 +7,7 @@ body {
 
 .main {
 	margin: 0 auto;
-	width:30vw;
+	width:30.5vw;
 	font-size:4vw;
 	line-height:80%;
 	text-align:justify;
@@ -18,19 +18,31 @@ body {
 	text-transform: uppercase;
 	letter-spacing: 3px;
 	opacity: 1;
+	-webkit-transition: background-image 1s ease-out;
+	-moz-transition: background-image 1s ease-out;
+	-o-transition: background-image 1s ease-out;
+	transition: background-image 1s ease-out;
 }
 
 .main a {
-	color:#000;
+	padding-top:10px;
+	background-image: -webkit-linear-gradient(left top, #8d7afe, #ff719b);
+  background-image: linear-gradient(left top, #8d7afe, #ff719b);
+	color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 	text-decoration: none;
 }
 
 .main a:hover {
-	color:#ba44dc;
-	-webkit-transition: color 1s ease-out;
-	-moz-transition: color 1s ease-out;
-	-o-transition: color 1s ease-out;
-	transition: color 1s ease-out;
+	/*color:#ba44dc;*/
+	background-image: -webkit-linear-gradient(left top, #ffb0e1, #a5deff);
+	background-image: linear-gradient(left top, #ffb0e1, #a5deff);
+
+	color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+
 
 }
 
