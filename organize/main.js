@@ -77,7 +77,7 @@ $(document).ready(function() {
 		let filter = $(this).attr('id');
 		switch (filter) {
 			case "product-filter":
-				users.forEach(function(user) {
+				$('.user').forEach(function(user) {
 					if (user.data("desc").match(/product/)) {
 						console.log("match");
 					}
