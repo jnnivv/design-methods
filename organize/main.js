@@ -79,8 +79,10 @@ $(document).ready(function() {
 			case "product-filter":
 				$('.user').each(function() {
 					if ($(this).data("desc").match(/product/)) {
-						console.log("match");
-					}
+						//console.log("match: " + $(this).data("desc"));
+
+							$(this).css({backgroundColor: 'red'});
+						}
 					else {
 						console.log("no match");
 					}
@@ -88,7 +90,7 @@ $(document).ready(function() {
 				break;
 			case "ux-filter":
 				if ($(this).data("desc").match(/ux/)) {
-					console.log("match");
+					console.log("match: " + $(this).data("desc"));
 				}
 				else {
 					console.log("no match");
