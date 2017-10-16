@@ -17,7 +17,7 @@ const colours = [
 const users = [];
 
 $(document).ready(function() {
-	
+
 	$.ajaxSetup({
 		beforeSend: function(xhr) {
 			if (xhr.overrideMimeType) {
@@ -25,11 +25,11 @@ $(document).ready(function() {
 			}
 		}
 	});
-	
+
 	// populate profiles
 
 	$.getJSON("twitter306.json" , function(data) {
-		
+
 		for(let i = 0; i < data.users.length; i++) {
 			const s = data.users[i].profile_image_url.replace(/_normal/g, "");
 			const img = "<img src = \"" + s + "\"/>";
@@ -40,17 +40,17 @@ $(document).ready(function() {
 			const user = makeUser(img, name, desc, twitter, website);
 			users.push(user);
 		}
-		
+
 	});
-	
+
 	$('body').on('mouseover', '.user', function() {
 		$(this).parent().append(this);
 	});
-	
+
 	const modal = document.getElementById('modal');
-	
+
 	$('body').on('click', '.user', function(){
-  	
+
 		const position = $(this).offset();
 		console.log(position);
 		$('#modal').css(position);
@@ -66,9 +66,9 @@ $(document).ready(function() {
 		if($(this).data("website") != null) {
 			$('.text').append("<span class=\"web\"><a href=\"" + $(this).data("website") + "\"  target=\"new\">Website</a></span><br>");
 		}
-  	
+
 	});
-	
+
 	$('span.close').on('click', function() {
 		modal.style.display = "none";
 	});
@@ -76,13 +76,15 @@ $(document).ready(function() {
 	$('.filter-button').hover(function() {
 		let filter = $(this).attr('id');
 		switch (filter) {
-			case "ui-filter":
-				users.forEach(function(user) {
-					if (user.data("desc").match(/ui/)) {
-						console.log("match");
+			case "product-filter":
+			$('.user').each(function() {
+					if ($(this).data("desc").match(/product/)) {
+						$(this).css({backgroundColor: 'red'});
 					}
 					else {
 						console.log("no match");
+						$(this).css({backgroundColor: 'black'});
+						$(this).fadeTo("slow", 0.33);
 					}
 				});
 				break;
@@ -90,7 +92,7 @@ $(document).ready(function() {
 			$('.user').each(function() {
 				if ($(this).data("desc").match(/ux/)) {
 					console.log("match: " + $(this).data("desc"));
-					$(this).css({backgroundColor: 'black'});
+					$(this).css({backgroundColor: 'blue'});
 				}
 				else {
 					console.log("no match");
@@ -118,11 +120,11 @@ function makeUser(img, name, desc, twitter, website) {
 		'height':divsize+'px',
 		'background-color': colours[rndCol]
 	});
-	
+
 	// make position sensitive to size and document's width
 	const posx = (Math.random() * ($(document).width() - divsize)).toFixed();
 	const posy = (Math.random() * ($(document).height() + 1500 - (divsize*3)) + 140).toFixed();
-	
+
 	$newuser.append(img);
 	$newuser.addClass("user");
 	$newuser.draggable();
