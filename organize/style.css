@@ -19,10 +19,7 @@ body {
 	text-transform: uppercase;
 	letter-spacing: 3px;
 	opacity: 1;
-	-webkit-transition: color 1s ease-out;
-	-moz-transition: color 1s ease-out;
-	-o-transition: color 1s ease-out;
-	transition: color 1s ease-out;
+
 }
 
 .main a {
@@ -47,7 +44,10 @@ body {
 	color: transparent;
   -webkit-background-clip: text;
   background-clip: text;*/
-
+	-webkit-transition: color 1s ease-out;
+	-moz-transition: color 1s ease-out;
+	-o-transition: color 1s ease-out;
+	transition: color 1s ease-out;
 
 }
 
